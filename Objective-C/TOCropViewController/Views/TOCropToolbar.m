@@ -75,7 +75,7 @@
 																  resourceBundle,
                                                                   nil)
                      forState:UIControlStateNormal];
-    [_doneTextButton setTitleColor:[UIColor colorWithRed:1.0f green:0.8f blue:0.0f alpha:1.0f] forState:UIControlStateNormal];
+    [_doneTextButton setTitleColor:[UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f] forState:UIControlStateNormal];
     if (@available(iOS 13.0, *)) {
         [_doneTextButton.titleLabel setFont:[UIFont systemFontOfSize:17.0f weight:UIFontWeightMedium]];
     } else {
@@ -87,7 +87,7 @@
     
     _doneIconButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_doneIconButton setImage:[TOCropToolbar doneImage] forState:UIControlStateNormal];
-    [_doneIconButton setTintColor:[UIColor colorWithRed:1.0f green:0.8f blue:0.0f alpha:1.0f]];
+    [_doneIconButton setTintColor:[UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f]];
     [_doneIconButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_doneIconButton];
 
@@ -104,6 +104,8 @@
                        forState:UIControlStateNormal];
     [_cancelTextButton.titleLabel setFont:[UIFont systemFontOfSize:17.0f]];
     [_cancelTextButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [_cancelTextButton setTitleColor:[UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f] forState:UIControlStateNormal];
+
     [_cancelTextButton sizeToFit];
     [self addSubview:_cancelTextButton];
     
@@ -439,22 +441,22 @@
     // Default color is app tint color
     if (cancelButtonColor == _cancelButtonColor) { return; }
     _cancelButtonColor = cancelButtonColor;
-    [_cancelTextButton setTitleColor:_cancelButtonColor forState:UIControlStateNormal];
-    [_cancelIconButton setTintColor:_cancelButtonColor];
+    [_cancelTextButton setTitleColor:[UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f] forState:UIControlStateNormal];
+//    [_cancelIconButton setTintColor:_cancelButtonColor];
     [_cancelTextButton sizeToFit];
 }
 
 - (void)setDoneButtonColor:(UIColor *)doneButtonColor {
     // Set the default color when nil is specified
     if (doneButtonColor == nil) {
-        doneButtonColor = [UIColor colorWithRed:1.0f green:0.8f blue:0.0f alpha:1.0f];
+        doneButtonColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f];
     }
 
     if (doneButtonColor == _doneButtonColor) { return; }
 
     _doneButtonColor = doneButtonColor;
-    [_doneTextButton setTitleColor:_doneButtonColor forState:UIControlStateNormal];
-    [_doneIconButton setTintColor:_doneButtonColor];
+//    [_doneTextButton setTitleColor:_doneButtonColor forState:UIControlStateNormal];
+//    [_doneIconButton setTintColor:_doneButtonColor];
     [_doneTextButton sizeToFit];
 }
 
